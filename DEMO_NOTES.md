@@ -16,6 +16,7 @@ Telegraf
 ========
 
 ```
+./sandbox enter telegraf
 telegraf config > /tmp/telegraf.conf; vim /tmp/telegraf.conf
 telegraf --config-directory ~/.telegraf.d
 telegraf --test --input-filter system
@@ -26,6 +27,11 @@ InfluxDB
 
 Schema Exploration
 ------------------
+
+```
+./sandbox enter influx
+influx
+```
 
 ```
 help
@@ -90,6 +96,10 @@ SELECT * FROM "docker_container_cpu_10m" WHERE "container_name" =~ /influxdb/ LI
 Chronograf
 ==========
 
+```
+open http://localhost:8888
+```
+
 Show:
 
 - Host List
@@ -105,6 +115,10 @@ Show in Chronograf:
 
 - Alert History
 - Alert Rules
+
+```
+./sandbox enter kapacitor
+```
 
 ```
 kapacitor help
@@ -127,7 +141,7 @@ kapacitor list recordings
 kapacitor replay -recording $rid -task cpu_alert
 ```
 
-(Adjust cpu_uasge to 100%)
+(Adjust cpu_usage to 100%)
 
 ```
 kapacitor define cpu_alert -tick cpu_alert.tick
@@ -136,6 +150,8 @@ cat /tmp/alerts.log
 ```
 
 (Revert back to 70% and add slack)
+
+(Configure Slack)[https://docs.influxdata.com/kapacitor/v1.3/nodes/alert_node/#slack] this is simplest done from Chronograf.
 
 ```
 stream
@@ -148,7 +164,7 @@ stream
         .id('cpu-idle')
         .slack()
         .channel('#kapacitor')
-        .iconEmoji(':grafana:')
+        .iconEmoji(':smile:')
 ```
 
 ```
