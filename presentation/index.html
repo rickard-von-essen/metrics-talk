@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+        <head>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+                <title>reveal.js</title>
+
+                <link rel="stylesheet" href="css/reveal.css">
+                <link rel="stylesheet" href="css/theme/influxdata.css">
+
+                <!-- Theme used for syntax highlighting of code -->
+                <link rel="stylesheet" href="lib/css/zenburn.css">
+
+                <!-- Printing and PDF exports -->
+                <script>
+                        var link = document.createElement( 'link' );
+                        link.rel = 'stylesheet';
+                        link.type = 'text/css';
+                        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+                        document.getElementsByTagName( 'head' )[0].appendChild( link );
+                </script>
+                <script src="https://use.fontawesome.com/3b81c781aa.js"></script>
+        </head>
+  <body>
+    <div class="reveal">
+      <div class="slides" data-transition="fade-in">
+        <section data-background-image="images/photography/photo-8.jpg">
+          <h2 class="telegraf">Introducing the</h2>
+          <h1 class="influx">TICK-Stack</h1>
+        </section>
+        <section data-background-image="images/photography/photo-5.jpg">
+          <h3>Rickard von Essen</h3>
+          <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:Rickard von Essen <rickard.von.essen@gmail.com>">rickard.von.essen@gmail.com</a> <br>
+          <i class="fa fa-microchip" aria-hidden="true"></i><br>
+          <i class="fa fa-briefcase" aria-hidden="true"></i> <a href="http://www.diabol.se/">Continuous Delivery and Cloud Expert - Diabol</a> <br>
+          <i class="fa fa-microchip" aria-hidden="true"></i> <br>
+          <i class="fa fa-github-alt" aria-hidden="true"></i> <a href="https://github.com/rickard-von-essen/">rickard-von-essen</a> <br>
+          <i class="fa fa-twitter" aria-hidden="true"></i> <a href="https://twitter.com/rickrd_v_essen/">@rickard_v_essen</a> <br>
+          <i class="fa fa-lock" aria-hidden="true"></i> <a href="https://keybase.io/rickard_v_essen/">rickard_v_essen</a> <br>
+          <i class="fa fa-key" aria-hidden="true"></i> <i style="font-size:25px">9106 A6EA 99B6 9DAB 8C1F 4E9E E0C0 3273 8887 6CBA</i>
+
+          <img data-src="images/hashicorp-packer.svg" style="border:none;width:304px;">
+        </section>
+
+        <section data-background-image="images/photography/photo-7.jpg">
+          <section>
+            <h1>TICK</h1>
+            <ul>
+              <li class="fragment fade-up telegraf">Telegraf</li>
+              <li class="fragment fade-up influx">InfluxDB</li>
+              <li class="fragment fade-up chronograf">Chronograf</li>
+              <li class="fragment fade-up kapacitor">Kapacitor</li>
+            </ul>
+          </section>
+
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h1>Overview</h1>
+            <img data-src="images/Markitecture-v9-WHITE-ONLY-TICK_cropped.png" style="background-color:#BEC2CC" >
+          </section>
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h1>Collect</h1>
+            <img data-src="images/Markitecture-v9-WHITE-ONLY-TICK_collect.png" style="background-color:#BEC2CC" >
+          </section>
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h1>Analyze</h1>
+            <img data-src="images/Markitecture-v9-WHITE-ONLY-TICK_analyze.png" style="background-color:#BEC2CC" >
+          </section>
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h1>Monitor/Act</h1>
+            <img data-src="images/Markitecture-v9-WHITE-ONLY-TICK_monitor.png" style="background-color:#BEC2CC" >
+          </section>
+        </section>
+
+        <section data-background-image="images/artwork/hero-6.jpg">
+          <section>
+            <h1 class="telegraf-alt">Telegraf</h1>
+            <img data-src="images/logos/influx-logo-cubo-dark-24.png" style="box-shadow:none;border:none;background:transparent;width:200px;">
+          </section>
+
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h3 class="telegraf">Telegraf</h3>
+            <p>Plugin-driven server agent for collecting and reporting metrics</p>
+            <ul>
+              <li><i class="devicons devicons-go"></i> Go</li>
+              <li><i class="fa fa-plug"></i> Plugin Based</li>
+              <li><i class="fa fa-cogs"></i> TOML Based Config with Fragments Support</li>
+            </ul>
+
+          </section>
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h3 class="telegraf">Telegraf</h3>
+            <ul>
+              <li class="fragment fade-in telegraf">Input</li>
+              <li class="fragment fade-in telegraf">Processor</li>
+              <li class="fragment fade-in telegraf">Aggregator</li>
+              <li class="fragment fade-in telegraf">Output</li>
+            </ul>
+
+          </section>
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h3 class="telegraf">Input</h3>
+            Collect metrics from the system, services, or 3rd party APIs<br><br>
+            <ul>
+              <li>CPU</li>
+              <li>System</li>
+              <li>Apache</li>
+              <li>ZFS</li>
+              <li>S.M.A.R.T.</li>
+            </ul><br><br>
+            +80 more by default
+          </section>
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h3 class="telegraf">Processor and Aggregator</h3>
+            <p>Create aggregate metrics (e.g. mean, min, max, quantiles, etc.)</p>
+            <p>Transform, decorate, and/or filter metrics</p>
+          </section>
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h3 class="telegraf">Output</h3>
+            <p>Write metrics to various destinations</p><br><br>
+            <ul>
+              <li>InfluxDB</li>
+              <li>Graphite</li>
+              <li>Prometheus</li>
+              <li>Reimann</li>
+              <li>TCP</li>
+            </ul><br><br>
+            +15 more by default
+          </section>
+          <section data-background-image="images/artwork/hero-5.jpg">
+            <h3 class="telegraf">Line Protocol</h3>
+            <pre><code class="hljs" data-trim contenteditable style="word-wrap: break-word;">
+* Plugin: inputs.system, Collection 1
+> system,host=Rickards-MacBook-Pro.local
+  load5=2.61,load15=2.96,n_users=2i,n_cpus=8i,load1=2.31
+  1493811190000000000
+> system,host=Rickards-MacBook-Pro.local
+  uptime=2147599i,uptime_format="24 days, 20:33"
+  1493811190000000000
+            </code></pre>
+
+            <i class="devicons devicons-terminal"></i>
+            <pre><code data-trim data-noescape>
+$ telegraf --config telegraf.conf -input-filter cpu:mem
+            </code></pre>
+          <p></p>
+
+          </section>
+        </section>
+      </div>
+    </div>
+
+                <script src="lib/js/head.min.js"></script>
+                <script src="js/reveal.js"></script>
+
+                <script>
+                        // More info about config & dependencies:
+                        // - https://github.com/hakimel/reveal.js#configuration
+                        // - https://github.com/hakimel/reveal.js#dependencies
+                        Reveal.initialize({
+                                transition: Reveal.getQueryHash().transition || 'fade',
+                                dependencies: [
+                                        { src: 'plugin/markdown/marked.js' },
+                                        { src: 'plugin/markdown/markdown.js' },
+                                        { src: 'plugin/notes/notes.js', async: true },
+                                        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                                ]
+                        });
+                </script>
+        </body>
+</html>
