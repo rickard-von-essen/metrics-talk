@@ -21,11 +21,12 @@ services:
 
   # C
   chronograf:
-    image: chronograf:1.0.0-rc1
+    image: quay.io/influxdb/chronograf:1.2.0-beta8
     ports:
-      - "10000:10000"
+      - "8888:8888"
     volumes:
       - ./chronograf.conf:/etc/chronograf/chronograf.conf:ro
+      - ./chronograf-v1.db:/var/lib/chronograf/chronograf-v1.db:rw
 
   # K
   kapacitor:
@@ -38,7 +39,7 @@ services:
 # ------------------------------------------------------------------------------
   # Grafana - not part of the TICK-stack but usually used togheter with InfluxDB
   grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:4.2.0
     ports:
       - "3000:3000"
     volumes:
