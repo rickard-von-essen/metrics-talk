@@ -1,8 +1,0 @@
-CREATE USER admin WITH PASSWORD 'admin' WITH ALL PRIVILEGES
-
-CREATE USER reader WITH PASSWORD 'reader'
-CREATE USER writer WITH PASSWORD 'writer'
-
-CREATE DATABASE telegraf
-GRANT READ on telegraf to reader
-GRANT write on telegraf to writer
