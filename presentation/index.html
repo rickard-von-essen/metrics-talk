@@ -4,8 +4,7 @@
                 <meta charset="utf-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-
-                <title>reveal.js</title>
+                <title>TICK Talk</title>
 
                 <link rel="stylesheet" href="css/reveal.css">
                 <link rel="stylesheet" href="css/theme/influxdata.css">
@@ -29,13 +28,15 @@
         <section data-background-image="images/photography/photo-8.jpg">
           <h2 class="telegraf">Introducing the</h2>
           <h1 class="influxdb">TICK-Stack</h1>
+          <img data-src="images/logos/influx-logo-cubo-gradient-A.svg" style="box-shadow:none;border:none;background:transparent;width:300px;">
         </section>
+
         <section data-background-image="images/photography/photo-5.jpg">
           <h3 class="kapacitor">Rickard von Essen</h3>
           <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:Rickard von Essen <rickard.von.essen@gmail.com>">rickard.von.essen@gmail.com</a> <br>
-          <i class="fa fa-microchip" aria-hidden="true"></i><br>
+          <br>
           <i class="fa fa-briefcase" aria-hidden="true"></i> <a href="http://www.diabol.se/">Continuous Delivery and Cloud Expert - Diabol</a> <br>
-          <i class="fa fa-microchip" aria-hidden="true"></i> <br>
+          <br>
           <i class="fa fa-github-alt" aria-hidden="true"></i> <a href="https://github.com/rickard-von-essen/">rickard-von-essen</a> <br>
           <i class="fa fa-twitter" aria-hidden="true"></i> <a href="https://twitter.com/rickrd_v_essen/">@rickard_v_essen</a> <br>
           <i class="fa fa-lock" aria-hidden="true"></i> <a href="https://keybase.io/rickard_v_essen/">rickard_v_essen</a> <br>
@@ -86,9 +87,9 @@
               &ldquo;Plugin-driven server agent for collecting and reporting metrics&rdquo;
             </blockquote>
             <ul>
-              <li><i class="devicons devicons-go"></i> Go</li>
-              <li><i class="fa fa-plug"></i> Plugin Based</li>
-              <li><i class="fa fa-cogs"></i> TOML Based Config with Fragments Support</li>
+              <li><i class="devicons devicons-go"></i>&emsp; Go</li>
+              <li><i class="fa fa-plug"></i>&emsp; Plugin Based</li>
+              <li><i class="fa fa-cogs"></i>&emsp; TOML Based Config with Fragments Support</li>
             </ul>
 
           </section>
@@ -197,10 +198,10 @@ $ telegraf -test -input-filter system
             </blockquote>
 
             <ul>
-              <li><i class="devicons devicons-go"></i> Go</li>
-              <li><i class="fa fa-cogs"></i> TOML Based Simple Config</li>
-              <li><i class="fa fa-signal"></i> Linearly Scalable</li>
-              <li><i class="fa fa-cubes"></i> Clustered Enterprise version</li>
+              <li><i class="devicons devicons-go"></i>&emsp; Go</li>
+              <li><i class="fa fa-cogs"></i>&emsp; TOML Based Simple Config</li>
+              <li><i class="fa fa-signal"></i>&emsp; Linearly Scalable</li>
+              <li><i class="fa fa-cubes"></i>&emsp; Clustered Enterprise version</li>
             </ul>
           </section>
 
@@ -230,14 +231,18 @@ $ telegraf -test -input-filter system
             <h3 class="influxdb">Schema Exploration</h3>
             <pre><code class="hljs" data-trim contenteditable style="word-wrap: break-word;">
 SHOW DATABASES
+
 SHOW MEASUREMENTS
-SHOW FIELD KEYS
-SHOW TAG KEYS
-SHOW TAG VALUES
+
+SHOW FIELD KEYS FROM &lt;measurement&gt;
+SHOW TAG KEYS FROM &lt;measurement&gt;
+SHOW TAG VALUES FROM &lt;measurement&gt; WITH KEY = &lt;key&gt;
+
+SHOW SERIES
             </code></pre>
           </section>
 
-          <section data-background-image="images/photography/photo-4.jpg">
+          <section data-background-image="images/photography/photo-6.jpg">
             <h3 class="influxdb">Data Exploration</h3>
             <ul>
               <li class="fragment fade-in">SELECT</li>
@@ -251,23 +256,118 @@ SHOW TAG VALUES
             <ul>
               <li class="fragment fade-in">Regular Expressions</li>
               <li class="fragment fade-in">Data Types</li>
+              <li class="fragment fade-in">Functions</li>
+              <li class="fragment fade-in">Group By Time</li>
               <li class="fragment fade-in">Merge Behavior</li>
               <li class="fragment fade-in">Subqueries</li>
             </ul>
           </section>
 
-            <h3 class="influxdb">Schema Exploration</h3>
+          <section data-background-image="images/photography/photo-6.jpg">
+            <h3 class="influxdb">Data Exploration</h3>
             <pre><code class="hljs" data-trim contenteditable style="word-wrap: break-word;">
-            SELECT TODO
+SELECT * FROM &lt;measurement&gt;
+SELECT * FROM &lt;measurement&gt; LIMIT 4
+
+[...] WHERE &lt;tag key&gt; = &lt;value&gt;
+[...] WHERE &lt;tag key&gt; =~ &lt;regexp&gt;
+[...] WHERE &lt;tag key&gt; !~ &lt;regexp&gt;
+[...] WHERE &lt;field key&gt; &lt;op&gt; &lt;value&gt;
+
+SELECT * FROM &lt;measurement&gt; GROUP BY &lt;tag key&gt;
+SELECT MAX(&lt;field key&gt;) FROM &lt;measurement&gt;
+
+[...] WHERE &lt;time filter&gt; GROUP BY time(&lt;duration&gt;)
+
+SELECT * FROM (SELECT [...])
             </code></pre>
           </section>
 
-          <!--
-Retention Policeies
-CQ
+          <section data-background-image="images/photography/photo-4.jpg">
+            <h3 class="influxdb">Retention Policies - RP's</h3>
+            <ul>
+              <li class="fragment fade-in">Duration</li>
+              <li class="fragment fade-in">Shard Duration</li>
+              <li class="fragment fade-in">Replication</li>
+            </ul>
+          </section>
 
+          <section data-background-image="images/photography/photo-4.jpg">
+            <h3 class="influxdb">Retention Policies</h3>
+            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
+> SHOW RETENTION POLICIES
+name    duration shardGroupDuration replicaN default
+----    -------- ------------------ -------- -------
+autogen 0s       168h0m0s           1        true
+            </code></pre>
+          </section>
+          <section data-background-image="images/photography/photo-4.jpg">
+            <h3 class="influxdb">Retention Policies</h3>
+            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
+> SHOW RETENTION POLICIES
+name    duration shardGroupDuration replicaN default
+----    -------- ------------------ -------- -------
+<mark>autogen</mark> 0s       168h0m0s           1        true
+            </code></pre>
+          </section>
+          <section data-background-image="images/photography/photo-4.jpg">
+            <h3 class="influxdb">Retention Policies</h3>
+            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
+> SHOW RETENTION POLICIES
+name    duration shardGroupDuration replicaN default
+----    -------- ------------------ -------- -------
+autogen <mark>0s</mark>       168h0m0s           1        true
+            </code></pre>
+          </section>
+          <section data-background-image="images/photography/photo-4.jpg">
+            <h3 class="influxdb">Retention Policies</h3>
+            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
+> SHOW RETENTION POLICIES
+name    duration shardGroupDuration replicaN default
+----    -------- ------------------ -------- -------
+autogen 0s       <mark>168h0m0s</mark>           1        true
+            </code></pre>
+          </section>
+          <section data-background-image="images/photography/photo-4.jpg">
+            <h3 class="influxdb">Retention Policies</h3>
+            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
+> SHOW RETENTION POLICIES
+name    duration shardGroupDuration replicaN default
+----    -------- ------------------ -------- -------
+autogen 0s       168h0m0s           <mark>1</mark>        true
+            </code></pre>
+          </section>
+          <section data-background-image="images/photography/photo-4.jpg">
+            <h3 class="influxdb">Retention Policies</h3>
+            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
+> SHOW RETENTION POLICIES
+name    duration shardGroupDuration replicaN default
+----    -------- ------------------ -------- -------
+autogen 0s       168h0m0s           1        <mark>true</mark>
+            </code></pre>
+          </section>
 
-          -->
+          <section data-background-image="images/photography/photo-7.jpg">
+            <h3 class="influxdb">Continuous Queries - CQ's</h3>
+            <ul>
+              <li class="fragment fade-in">Downsample</li>
+              <li class="fragment fade-in">Pre-calculating</li>
+              <li class="fragment fade-in">(HAVING)</li>
+              <li class="fragment fade-in">(Nested Functions)</li>
+            </ul>
+          </section>
+
+          <section data-background-image="images/photography/photo-7.jpg">
+            <h3 class="influxdb">Continuous Queries - CQ's</h3>
+            <pre><code class="hljs" data-trim contenteditable style="word-wrap: break-word;">
+SHOW CONTINUOUS QUERIES
+
+CREATE CONTINUOUS QUERY &lt;cq name&gt; ON &lt;database&gt;
+BEGIN
+  SELECT [...] INTO &lt;new measurement&gt; FROM &lt;source measurement&gt; GROUP BY TIME(&lt;duration&gt;)
+END
+            </code></pre>
+          </section>
 
         </section>
 
@@ -278,17 +378,24 @@ CQ
             <img data-src="images/logo-variations/chronograf-gradient-A.svg" style="box-shadow:none;border:none;background:transparent;height:200px;">
           </section>
 
-          <section data-background-image="images/photography/photo-1.jpg">
+          <section data-background-image="images/photography/photo-5.jpg">
             <h2 class="chronograf">Chronograf</h2>
             <blockquote>
-              &ldquo;Plugin-driven server agent for collecting and reporting metrics&rdquo;
+              &ldquo;Chronograf is a graphing and visualization application for performing ad hoc exploration of data&rdquo;
             </blockquote>
-            <p>TODO</p>
+          </section>
+
+          <section data-background-image="images/photography/photo-5.jpg">
+            <h2 class="chronograf">Chronograf</h2>
             <ul>
-              <li><i class="devicons devicons-go"></i>  Go</li>
-              <li><i class="fa fa-cogs"></i>  TOML Based Simple Config</li>
-              <li><i class="fa fa-plug"></i>  Linearly Scalable</li>
-              <li><i class="fa fa-plug"></i>  Clustered Enterprise version</li>
+              <li><i class="devicons devicons-go"></i>&emsp; Go</li>
+              <li><i class="fa fa-cogs"></i>&emsp; Zero Config</li>
+              <li><i class="fa fa-wrench"></i>&emsp; InfluxDB Administration</li>
+              <li><i class="fa fa-compass"></i>&emsp; Data Exploration</li>
+              <li><i class="fa fa-line-chart"></i>&emsp; Canned Dashboards</li>
+              <li><i class="fa fa-bar-chart"></i>&emsp; Adaptive Host Dashboards</li>
+              <li><i class="fa fa-pie-chart"></i>&emsp; Simple Dashboards</li>
+              <li><i class="fa fa-exclamation-triangle"></i>&emsp; Alert Management</li>
             </ul>
           </section>
         </section>
@@ -303,18 +410,41 @@ CQ
           <section data-background-image="images/photography/photo-1.jpg">
             <h2 class="kapacitor">Kapacitor</h2>
             <blockquote>
-              &ldquo;Plugin-driven server agent for collecting and reporting metrics&rdquo;
+              &ldquo;Open source framework for processing, monitoring, and alerting on time series data&rdquo;
             </blockquote>
-            <p>TODO</p>
+          </section>
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h2 class="kapacitor">Kapacitor</h2>
             <ul>
-              <li><i class="devicons devicons-go"></i> Go</li>
-              <li><i class="fa fa-cogs"></i> TOML Based Simple Config</li>
-              <li><i class="fa fa-plug"></i> Linearly Scalable</li>
-              <li><i class="fa fa-plug"></i> Clustered Enterprise version</li>
+              <li><i class="devicons devicons-go"></i>&emsp; Go</li>
+              <li><i class="fa fa-cogs"></i>&emsp; TOML Based Simple Config</li>
+              <li><i class="fa fa-file-text-o"></i>&emsp; TICKscript Task Config</li>
             </ul>
           </section>
-        </section>
 
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h2 class="kapacitor">Usage</h2>
+            <ul>
+              <li>Offload CQ's</li>
+              <li>Pre-processing</li>
+              <li>Alerting</li>
+            </ul>
+          </section>
+
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h2 class="kapacitor">Concepts</h2>
+            <ul>
+              <li><i class="fa fa-ellipsis-h"></i>&emsp; Tasks</li>
+              <li><i class="fa fa-ellipsis-h"></i>&emsp; Templates</li>
+              <li><i class="fa fa-ellipsis-h"></i>&emsp; Recordings</li>
+              <li><i class="fa fa-ellipsis-h"></i>&emsp; Replays</li>
+              <li><i class="fa fa-ellipsis-h"></i>&emsp; Topics</li>
+              <li><i class="fa fa-ellipsis-h"></i>&emsp; Handlers</li>
+              <li><i class="fa fa-ellipsis-h"></i>&emsp; Service Tests</li>
+            </ul>
+          </section>
+
+        </section>
       </div>
     </div>
 
