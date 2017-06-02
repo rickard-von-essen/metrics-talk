@@ -300,8 +300,13 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
-.influx {
+.influxdb {
   background: -webkit-linear-gradient(left, #22ADF6, #9394FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+
+.influxdb-alt {
+  background: -webkit-linear-gradient(left, #4591ED, #22ADF6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
@@ -310,8 +315,18 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
+.chronograf-alt {
+  background: -webkit-linear-gradient(left, #7A65F2, #9394FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+
 .kapacitor {
   background: -webkit-linear-gradient(left, #00C9FF, #4ED8A0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+
+.kapacitor-alt {
+  background: -webkit-linear-gradient(left, #4ED8A0, #7CE490);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
