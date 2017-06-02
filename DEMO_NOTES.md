@@ -154,4 +154,5 @@ stream
 ```
 kapacitor define cpu_alert -tick cpu_alert.tick
 kapacitor enable cpu_alert
+while true; do i=0; done
 ```
