@@ -107,6 +107,51 @@ Show in Chronograf:
 - Alert Rules
 
 ```
+kapacitor help
 kapacitor list tasks
+```
 
+```
+stream
+    |from()
+        .measurement('cpu')
+    |alert()
+        .crit(lambda: "usage_idle" < 70)
+        .log('/tmp/alerts.log')
+```
+
+```
+kapacitor define cpu_alert -type stream -tick cpu_alert.tick -dbrp telegraf.autogen
+export rid=$(kapacitor record stream -task cpu_alert -duration 20s)
+kapacitor list recordings
+kapacitor replay -recording $rid -task cpu_alert
+```
+
+(Adjust cpu_uasge to 100%)
+
+```
+kapacitor define cpu_alert -tick cpu_alert.tick
+kapacitor replay -recording $rid -task cpu_alert
+cat /tmp/alerts.log
+```
+
+(Revert back to 70% and add slack)
+
+```
+stream
+    |from()
+        .measurement('cpu')
+    |alert()
+        .crit(lambda: "usage_idle" < 70)
+        .stateChangesOnly()
+        .message('{{.Level}}: {{.ID}} Idle CPU: {{ index .Fields "value" }}%')
+        .id('cpu-idle')
+        .slack()
+        .channel('#kapacitor')
+        .iconEmoji(':grafana:')
+```
+
+```
+kapacitor define cpu_alert -tick cpu_alert.tick
+kapacitor enable cpu_alert
 ```
