@@ -73,6 +73,8 @@
           </section>
         </section>
 
+        <!-- Telegraf -->
+
         <section data-background-image="images/artwork/hero-6.jpg">
           <section>
             <h1 class="telegraf-alt">Telegraf</h1>
@@ -142,12 +144,112 @@
 
             <i class="devicons devicons-terminal"></i>
             <pre><code data-trim data-noescape>
-$ telegraf --config telegraf.conf -input-filter cpu:mem
+$ telegraf -test -input-filter system
             </code></pre>
-          <p></p>
+          </section>
 
+          <section data-background-image="images/artwork/hero-5.jpg">
+            <h3 class="telegraf">Measurement</h3>
+            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
+> <mark>system</mark>,host=Rickards-MacBook-Pro.local
+  load5=2.61,load15=2.96,n_users=2i,n_cpus=8i,load1=2.31
+  1493811190000000000
+            </code></pre>
+          </section>
+          <section data-background-image="images/artwork/hero-5.jpg">
+            <h3 class="telegraf">Tags</h3>
+            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
+> system,<mark>host=Rickards-MacBook-Pro.local</mark>
+  load5=2.61,load15=2.96,n_users=2i,n_cpus=8i,load1=2.31
+  1493811190000000000
+            </code></pre>
+          </section>
+          <section data-background-image="images/artwork/hero-5.jpg">
+            <h3 class="telegraf">Fields</h3>
+            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
+> system,host=Rickards-MacBook-Pro.local
+  <mark>load5=2.61,load15=2.96,n_users=2i,n_cpus=8i,load1=2.31</mark>
+  1493811190000000000
+            </code></pre>
+          </section>
+          <section data-background-image="images/artwork/hero-5.jpg">
+            <h3 class="telegraf">Timestamp</h3>
+            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
+> system,host=Rickards-MacBook-Pro.local
+  load5=2.61,load15=2.96,n_users=2i,n_cpus=8i,load1=2.31
+  <mark>1493811190000000000</mark>
+            </code></pre>
           </section>
         </section>
+
+        <!-- InfluxDB -->
+
+        <section data-background-image="images/artwork/hero-6.jpg">
+          <section>
+            <h1 class="influxdb-alt">InfluxDB</h1>
+            <img data-src="images/logos/influx-logo-cubo-dark-24.png" style="box-shadow:none;border:none;background:transparent;width:200px;">
+          </section>
+
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h3 class="influxdb">InfluxDB</h3>
+            <p>Scalable datastore for metrics, events, and real-time analytics</p>
+            <ul>
+              <li><i class="devicons devicons-go"></i> Go</li>
+              <li><i class="fa fa-cogs"></i> TOML Based Simple Config</li>
+              <li><i class="fa fa-plug"></i> Linearly Scalable</li>
+              <li><i class="fa fa-plug"></i> Clustered Enterprise version</li>
+            </ul>
+          </section>
+
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h3 class="influxdb">InfluxDB</h3>
+            <ul>
+              <li class="fragment fade-in telegraf">TODO</li>
+            </ul>
+          </section>
+
+        </section>
+
+        <!-- Chronograf -->
+
+        <section data-background-image="images/artwork/hero-6.jpg">
+          <section>
+            <h1 class="Chronograf-alt">Chronograf</h1>
+            <img data-src="images/logos/influx-logo-cubo-dark-24.png" style="box-shadow:none;border:none;background:transparent;width:200px;">
+          </section>
+
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h3 class="chronograf">Chronograf</h3>
+            <p>TODO</p>
+            <ul>
+              <li><i class="devicons devicons-go"></i> Go</li>
+              <li><i class="fa fa-cogs"></i> TOML Based Simple Config</li>
+              <li><i class="fa fa-plug"></i> Linearly Scalable</li>
+              <li><i class="fa fa-plug"></i> Clustered Enterprise version</li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- Kapacitor -->
+
+        <section data-background-image="images/artwork/hero-6.jpg">
+          <section>
+            <h1 class="kapacitor-alt">Kapacitor</h1>
+            <img data-src="images/logos/influx-logo-cubo-dark-24.png" style="box-shadow:none;border:none;background:transparent;width:200px;">
+          </section>
+
+          <section data-background-image="images/photography/photo-1.jpg">
+            <h3 class="Kapacitor">Kapacitor</h3>
+            <p>TODO</p>
+            <ul>
+              <li><i class="devicons devicons-go"></i> Go</li>
+              <li><i class="fa fa-cogs"></i> TOML Based Simple Config</li>
+              <li><i class="fa fa-plug"></i> Linearly Scalable</li>
+              <li><i class="fa fa-plug"></i> Clustered Enterprise version</li>
+            </ul>
+          </section>
+        </section>
+
       </div>
     </div>
 
