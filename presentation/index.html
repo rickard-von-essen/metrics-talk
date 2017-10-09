@@ -26,14 +26,17 @@
     <div class="reveal">
       <div class="slides" data-transition="fade-in">
         <section data-background-image="images/photography/photo-8.jpg">
-          <h2 class="telegraf">Introducing the</h2>
-          <h1 class="influxdb">TICK-Stack</h1>
-          <img data-src="images/logos/influx-logo-cubo-gradient-A.svg" style="box-shadow:none;border:none;background:transparent;width:300px;">
+          <h2 class="influxdb">Build</h2>
+          <h2 class="influxdb">Measure</h2>
+          <h2 class="influxdb">Learn</h2>
+          <h4 class="telegraf">Introducing monitoring with metrics</h4>
+          <img data-src="images/logos/influx-logo-cubo-gradient-A.svg" style="box-shadow:none;border:none;background:transparent;width:150px;">
+          <img data-src="images/logos/grafana_trimmed.png" style="box-shadow:none;border:none;background:transparent;width:140px;">
         </section>
 
         <section data-background-image="images/photography/photo-5.jpg">
           <h3 class="kapacitor">Rickard von Essen</h3>
-          <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:Rickard von Essen <rickard.von.essen@gmail.com>">rickard.von.essen@gmail.com</a> <br>
+          <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:Rickard von Essen <rickard@diabol.se>">rickard@diabol.se</a> <br>
           <br>
           <i class="fa fa-briefcase" aria-hidden="true"></i> <a href="http://www.diabol.se/">Continuous Delivery and Cloud Expert - Diabol</a> <br>
           <br>
@@ -43,6 +46,85 @@
           <i class="fa fa-key" aria-hidden="true"></i> <i style="font-size:25px">9106 A6EA 99B6 9DAB 8C1F 4E9E E0C0 3273 8887 6CBA</i>
 
           <img data-src="images/hashicorp-packer.svg" style="border:none;width:304px;">
+        </section>
+
+        <section data-background-image="images/photography/photo-7.jpg">
+          <section>
+            <h1 class="influxdb">History of Monitoring</h1>
+          </section>
+          <section data-background-image="images/mainframe_radient.png">
+            <h2 class="influxdb">No monitoring/Direct monitoring</h2>
+          </section>
+          <section data-background-image="images/Colocation-Cage-1_radient.png">
+            <h2 class="influxdb">Host Centric Checks</h2>
+            Nagios etc
+          </section>
+          <section data-background-image="images/google_radient.png">
+            <h2 class="kapacitor">Application/System Centric</h2>
+            <i class="fa fa-tachometer" aria-hidden="true"></i> Monitoring through metrics
+          </section>
+        </section>
+
+        <section data-background-image="images/photography/photo-7.jpg">
+          <section>
+            <h1 class="influxdb">Metrics Tauxonmy</h1>
+          </section>
+          <section>
+            <h2 class="telegraf">Measurement</h2>
+          </section>
+          <section>
+            <h2 class="telegraf">Measurement</h2>
+            <ul>
+              <li class="influxdb">Meters - Rate Per Second</li>
+            </ul>
+            <br>
+            <img data-src="images/Meters.png" style="box-shadow:none;border:none;background:transparent;width:250px;">
+          </section>
+          <section>
+            <h2 class="telegraf">Measurement</h2>
+            <ul>
+              <li class="influxdb">Gauges (Counters)<br>Instant Snapshot, Queue Length</li>
+            </ul>
+            <br>
+            <img data-src="images/QueueLength.png" style="box-shadow:none;border:none;background:transparent;width:450px;">
+          </section>
+          <section>
+            <h2 class="telegraf">Measurement</h2>
+            <ul>
+              <li class="influxdb">Histograms - Min, Max, Mean, 75th, 90th, 95th, 98th, 99th, and 99.9th Pcts</li>
+            </ul>
+            <br>
+          </section>
+          <section>
+            <h2 class="telegraf">Measurement</h2>
+            <ul>
+              <li class="influxdb">Timers - Meter and Histogram</li>
+            </ul>
+            <br>
+          </section>
+          <section>
+            <h2 class="telegraf">Measurement</h2>
+            <ul>
+              <li class="influxdb">HealthChecks - Ok / Fail</li>
+            </ul>
+            <br>
+          </section>
+          <section>
+            <h2 class="telegraf">Types of Measurement</h2>
+            <ul>
+              <li class="fragment fade-up chronograf">Work Metrics - Throughput, Sucess, Error, Performance</li>
+              <li class="fragment fade-up chronograf">Resource Metrics - Utilization, Saturation, Error, Availability</li>
+              <li class="fragment fade-up chronograf">Events - Code Change, Alerts, Scaling Events</li>
+            </ul>
+          </section>
+          <section>
+            <h2 class="kapacitor">Alerting</h2>
+            <ul>
+              <li class="fragment fade-up chronograf">Alert - Page!</li>
+              <li class="fragment fade-up chronograf">Notify - Email</li>
+              <li class="fragment fade-up chronograf">Store</li>
+            </ul>
+          </section>
         </section>
 
         <section data-background-image="images/photography/photo-7.jpg">
@@ -74,6 +156,30 @@
           </section>
         </section>
 
+        <section data-background-image="images/photography/photo-7.jpg">
+          <section>
+            <h1 class="telegraf">Grafana</h1>
+            <img data-src="images/logos/grafana_trimmed.png" style="box-shadow:none;border:none;background:transparent;width:240px;">
+          </section>
+
+          <section>
+            <h1 class="telegraf">Grafana</h1>
+            The analytics platform for all your metrics
+          </section>
+          <section>
+            <blockquote>
+              &ldquo;Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored. Create, explore, and share dashboards with your team and foster a data driven culture.&rdquo;
+            </blockquote>
+          </section>
+          <section>
+            <h1 class="telegraf">Grafana</h1>
+            <ul>
+              <li class="fragment fade-up telegraf">Visualize</li>
+              <li class="fragment fade-up telegraf">Alert</li>
+              <li class="fragment fade-up telegraf">Unify</li>
+            </ul>
+          </section>
+        </section>
         <!-- Telegraf -->
 
         <section data-background-image="images/artwork/hero-5.jpg">
