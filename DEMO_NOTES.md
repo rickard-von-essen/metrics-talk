@@ -12,6 +12,14 @@ curl https://s3.amazonaws.com/noaa.water-database/NOAA_data.txt -o /tmp/NOAA_dat
 influx -import -path=/tmp/NOAA_data.txt -precision=s
 ```
 
+Load Alert
+==========
+
+docker run dkuffner/docker-stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 90s
+
+
+
+
 Telegraf
 ========
 

@@ -4,7 +4,7 @@
                 <meta charset="utf-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-                <title>TICK Talk</title>
+                <title>Monitoring with Metrics</title>
 
                 <link rel="stylesheet" href="css/reveal.css">
                 <link rel="stylesheet" href="css/theme/influxdata.css">
@@ -53,7 +53,7 @@
             <h1 class="influxdb">History of Monitoring</h1>
           </section>
           <section data-background-image="images/mainframe_radient.png">
-            <h2 class="influxdb">No monitoring/Direct monitoring</h2>
+            <h2 class="influxdb">No monitoring / <br>Direct monitoring</h2>
           </section>
           <section data-background-image="images/Colocation-Cage-1_radient.png">
             <h2 class="influxdb">Host Centric Checks</h2>
@@ -70,10 +70,10 @@
             <h1 class="influxdb">Metrics Tauxonmy</h1>
           </section>
           <section>
-            <h2 class="telegraf">Measurement</h2>
+            <h2 class="telegraf">Measurement Classes</h2>
           </section>
           <section>
-            <h2 class="telegraf">Measurement</h2>
+            <h2 class="telegraf">Measurement Classes</h2>
             <ul>
               <li class="influxdb">Meters - Rate Per Second</li>
             </ul>
@@ -81,7 +81,7 @@
             <img data-src="images/Meters.png" style="box-shadow:none;border:none;background:transparent;width:250px;">
           </section>
           <section>
-            <h2 class="telegraf">Measurement</h2>
+            <h2 class="telegraf">Measurement Classes</h2>
             <ul>
               <li class="influxdb">Gauges (Counters)<br>Instant Snapshot, Queue Length</li>
             </ul>
@@ -89,41 +89,55 @@
             <img data-src="images/QueueLength.png" style="box-shadow:none;border:none;background:transparent;width:450px;">
           </section>
           <section>
-            <h2 class="telegraf">Measurement</h2>
+            <h2 class="telegraf">Measurement Classes</h2>
             <ul>
               <li class="influxdb">Histograms - Min, Max, Mean, 75th, 90th, 95th, 98th, 99th, and 99.9th Pcts</li>
             </ul>
             <br>
+            <img data-src="images/histogram.png" style="box-shadow:none;border:none;background:transparent;width:600px;">
           </section>
           <section>
-            <h2 class="telegraf">Measurement</h2>
+            <h2 class="telegraf">Measurement Classes</h2>
             <ul>
               <li class="influxdb">Timers - Meter and Histogram</li>
             </ul>
             <br>
           </section>
           <section>
-            <h2 class="telegraf">Measurement</h2>
+            <h2 class="telegraf">Measurement Classes</h2>
             <ul>
               <li class="influxdb">HealthChecks - Ok / Fail</li>
             </ul>
             <br>
+            <img data-src="images/health_check_ok.png" style="box-shadow:none;border:none;background:transparent;width:450px;">
           </section>
           <section>
+            <h2 class="telegraf">Types of Measurement</h2>
+            <img data-src="images/types.png" style="background-color:#BEC2CC" >
+          </section>
+          <!-- section>
             <h2 class="telegraf">Types of Measurement</h2>
             <ul>
               <li class="fragment fade-up chronograf">Work Metrics - Throughput, Sucess, Error, Performance</li>
               <li class="fragment fade-up chronograf">Resource Metrics - Utilization, Saturation, Error, Availability</li>
               <li class="fragment fade-up chronograf">Events - Code Change, Alerts, Scaling Events</li>
             </ul>
+          </section -->
+          <section>
+            <h2 class="telegraf">Tags</h2>
+            <img data-src="images/tags.png" style="background-color:#BEC2CC" >
           </section>
           <section>
-            <h2 class="kapacitor">Alerting</h2>
+            <h2 class="kapacitor">Levels of Alerting Urgency</h2>
             <ul>
-              <li class="fragment fade-up chronograf">Alert - Page!</li>
-              <li class="fragment fade-up chronograf">Notify - Email</li>
-              <li class="fragment fade-up chronograf">Store</li>
+              <li class="fragment fade-up chronograf">Record</li>
+              <li class="fragment fade-up chronograf">Notify</li>
+              <li class="fragment fade-up chronograf">Page</li>
             </ul>
+          </section>
+          <section>
+            <h2 class="telegraf">Data for Alerts</h2>
+            <img data-src="images/data_for_alerts.png" style="background-color:#BEC2CC" >
           </section>
         </section>
 
@@ -180,483 +194,30 @@
             </ul>
           </section>
         </section>
-        <!-- Telegraf -->
 
-        <section data-background-image="images/artwork/hero-5.jpg">
-          <section>
-            <img data-src="images/logo-variations/telegraf-gradient-B.svg" style="box-shadow:none;border:none;background:transparent;height:200px;">
-          </section>
-
-          <section data-background-image="images/photography/photo-1.jpg">
-            <h2 class="telegraf">Telegraf</h2>
-            <blockquote>
-              &ldquo;Plugin-driven server agent for collecting and reporting metrics&rdquo;
-            </blockquote>
-            <ul>
-              <li><i class="devicons devicons-go"></i>&emsp; Go</li>
-              <li><i class="fa fa-plug"></i>&emsp; Plugin Based</li>
-              <li><i class="fa fa-cogs"></i>&emsp; TOML Based Config with Fragments Support</li>
-            </ul>
-
-          </section>
-          <section data-background-image="images/photography/photo-1.jpg">
-            <h2 class="telegraf">Telegraf</h2>
-            <ul>
-              <li class="fragment fade-in telegraf">Input</li>
-              <li class="fragment fade-in telegraf">Processor</li>
-              <li class="fragment fade-in telegraf">Aggregator</li>
-              <li class="fragment fade-in telegraf">Output</li>
-            </ul>
-
-          </section>
-          <section data-background-image="images/photography/photo-1.jpg">
-            <h3 class="telegraf">Input</h3>
-            Collect metrics from the system, services, or 3rd party APIs<br><br>
-            <ul>
-              <li>CPU</li>
-              <li>System</li>
-              <li>Apache</li>
-              <li>ZFS</li>
-              <li>S.M.A.R.T.</li>
-            </ul><br><br>
-            +80 more by default
-          </section>
-          <section data-background-image="images/photography/photo-1.jpg">
-            <h3 class="telegraf">Processor and Aggregator</h3>
-            <p>Create aggregate metrics (e.g. mean, min, max, quantiles, etc.)</p>
-            <p>Transform, decorate, and/or filter metrics</p>
-          </section>
-          <section data-background-image="images/photography/photo-1.jpg">
-            <h3 class="telegraf">Output</h3>
-            <p>Write metrics to various destinations</p><br><br>
-            <ul>
-              <li>InfluxDB</li>
-              <li>Graphite</li>
-              <li>Prometheus</li>
-              <li>Reimann</li>
-              <li>TCP</li>
-            </ul><br><br>
-            +15 more by default
-          </section>
-          <section data-background-image="images/photography/photo-3.jpg">
-            <h3 class="telegraf">Line Protocol</h3>
-            <pre><code class="hljs" data-trim contenteditable style="word-wrap: break-word;">
-* Plugin: inputs.system, Collection 1
-> system,host=Rickards-MacBook-Pro.local
-  load5=2.61,load15=2.96,n_users=2i,n_cpus=8i,load1=2.31
-  1493811190000000000
-> system,host=Rickards-MacBook-Pro.local
-  uptime=2147599i,uptime_format="24 days, 20:33"
-  1493811190000000000
-            </code></pre>
-
-            <i class="devicons devicons-terminal"></i>
-            <pre><code data-trim data-noescape>
-$ telegraf -test -input-filter system
-            </code></pre>
-          </section>
-
-          <section data-background-image="images/photography/photo-3.jpg">
-            <h3 class="telegraf">Measurement</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-> <mark>system</mark>,host=Rickards-MacBook-Pro.local
-  load5=2.61,load15=2.96,n_users=2i,n_cpus=8i,load1=2.31
-  1493811190000000000
-            </code></pre>
-          </section>
-          <section data-background-image="images/photography/photo-3.jpg">
-            <h3 class="telegraf">Tags</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-> system,<mark>host=Rickards-MacBook-Pro.local</mark>
-  load5=2.61,load15=2.96,n_users=2i,n_cpus=8i,load1=2.31
-  1493811190000000000
-            </code></pre>
-          </section>
-          <section data-background-image="images/photography/photo-3.jpg">
-            <h3 class="telegraf">Fields</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-> system,host=Rickards-MacBook-Pro.local
-  <mark>load5=2.61,load15=2.96,n_users=2i,n_cpus=8i,load1=2.31</mark>
-  1493811190000000000
-            </code></pre>
-          </section>
-          <section data-background-image="images/photography/photo-3.jpg">
-            <h3 class="telegraf">Timestamp</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-> system,host=Rickards-MacBook-Pro.local
-  load5=2.61,load15=2.96,n_users=2i,n_cpus=8i,load1=2.31
-  <mark>1493811190000000000</mark>
-            </code></pre>
-          </section>
+        <section data-background-image="images/money-flow.png">
         </section>
 
-        <!-- InfluxDB -->
-
-        <section data-background-image="images/artwork/hero-7.jpg">
-          <section>
-            <img data-src="images/logo-variations/influx-db-gradient-A.svg" style="box-shadow:none;border:none;background:transparent;height:200px;">
-          </section>
-
-          <section data-background-image="images/photography/photo-1.jpg">
-            <h2 class="influxdb">InfluxDB</h2>
-            <blockquote>
-              &ldquo;Scalable datastore for metrics, events, and real-time analytics&rdquo;
-            </blockquote>
-
-            <ul>
-              <li><i class="devicons devicons-go"></i>&emsp; Go</li>
-              <li><i class="fa fa-cogs"></i>&emsp; TOML Based Simple Config</li>
-              <li><i class="fa fa-signal"></i>&emsp; Linearly Scalable</li>
-              <li><i class="fa fa-cubes"></i>&emsp; Clustered Enterprise version</li>
-            </ul>
-          </section>
-
-          <section data-background-image="images/photography/photo-1.jpg">
-            <h2 class="influxdb">Storage Engine</h2>
-            <h4>TSM - Time-Structured Merge Tree</h4>
-            <ul>
-              <li class="fragment fade-in">WAL - Write Ahead Log</li>
-              <li class="fragment fade-in">Shards / time range</li>
-              <li class="fragment fade-in">TSM Files - columnar compressed data</li>
-              <li class="fragment fade-in">Similar to LSM Tree / SSTables</li>
-            </ul>
-          </section>
-
-          <!-- InfluxQL -->
-
-          <section data-background-image="images/photography/photo-4.jpg">
-            <h2 class="influxdb">InfluxQL</h2>
-            <h4>SQL-like query language</h4>
-            <ul>
-              <li class="fragment fade-in">Schema Exploartion</li>
-              <li class="fragment fade-in">Data Exploartion</li>
-            </ul>
-          </section>
-
-          <section data-background-image="images/photography/photo-4.jpg">
-            <h3 class="influxdb">Schema Exploration</h3>
-            <pre><code class="hljs" data-trim contenteditable style="word-wrap: break-word;">
-SHOW DATABASES
-
-SHOW MEASUREMENTS
-
-SHOW FIELD KEYS FROM &lt;measurement&gt;
-SHOW TAG KEYS FROM &lt;measurement&gt;
-SHOW TAG VALUES FROM &lt;measurement&gt; WITH KEY = &lt;key&gt;
-
-SHOW SERIES
-            </code></pre>
-          </section>
-
-          <section data-background-image="images/photography/photo-6.jpg">
-            <h3 class="influxdb">Data Exploration</h3>
-            <ul>
-              <li class="fragment fade-in">SELECT</li>
-              <li class="fragment fade-in">WHERE</li>
-              <li class="fragment fade-in">GROUP BY</li>
-            </ul>
-            <ul>
-              <li class="fragment fade-in">ORDER BY</li>
-              <li class="fragment fade-in">LIMIT</li>
-            </ul>
-            <ul>
-              <li class="fragment fade-in">Regular Expressions</li>
-              <li class="fragment fade-in">Data Types</li>
-              <li class="fragment fade-in">Functions</li>
-              <li class="fragment fade-in">Group By Time</li>
-              <li class="fragment fade-in">Merge Behavior</li>
-              <li class="fragment fade-in">Subqueries</li>
-            </ul>
-          </section>
-
-          <section data-background-image="images/photography/photo-6.jpg">
-            <h3 class="influxdb">Data Exploration</h3>
-            <pre><code class="hljs" data-trim contenteditable style="word-wrap: break-word;">
-SELECT * FROM &lt;measurement&gt;
-SELECT * FROM &lt;measurement&gt; LIMIT 4
-
-[...] WHERE &lt;tag key&gt; = &lt;value&gt;
-[...] WHERE &lt;tag key&gt; =~ &lt;regexp&gt;
-[...] WHERE &lt;tag key&gt; !~ &lt;regexp&gt;
-[...] WHERE &lt;field key&gt; &lt;op&gt; &lt;value&gt;
-
-SELECT * FROM &lt;measurement&gt; GROUP BY &lt;tag key&gt;
-SELECT MAX(&lt;field key&gt;) FROM &lt;measurement&gt;
-
-[...] WHERE &lt;time filter&gt; GROUP BY time(&lt;duration&gt;)
-
-SELECT * FROM (SELECT [...])
-            </code></pre>
-          </section>
-
-          <section data-background-image="images/photography/photo-4.jpg">
-            <h3 class="influxdb">Retention Policies - RP's</h3>
-            <ul>
-              <li class="fragment fade-in">Duration</li>
-              <li class="fragment fade-in">Shard Duration</li>
-              <li class="fragment fade-in">Replication</li>
-            </ul>
-          </section>
-
-          <section data-background-image="images/photography/photo-4.jpg">
-            <h3 class="influxdb">Retention Policies</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-> SHOW RETENTION POLICIES
-name    duration shardGroupDuration replicaN default
-----    -------- ------------------ -------- -------
-autogen 0s       168h0m0s           1        true
-            </code></pre>
-          </section>
-          <section data-background-image="images/photography/photo-4.jpg">
-            <h3 class="influxdb">Retention Policies</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-> SHOW RETENTION POLICIES
-name    duration shardGroupDuration replicaN default
-----    -------- ------------------ -------- -------
-<mark>autogen</mark> 0s       168h0m0s           1        true
-            </code></pre>
-          </section>
-          <section data-background-image="images/photography/photo-4.jpg">
-            <h3 class="influxdb">Retention Policies</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-> SHOW RETENTION POLICIES
-name    duration shardGroupDuration replicaN default
-----    -------- ------------------ -------- -------
-autogen <mark>0s</mark>       168h0m0s           1        true
-            </code></pre>
-          </section>
-          <section data-background-image="images/photography/photo-4.jpg">
-            <h3 class="influxdb">Retention Policies</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-> SHOW RETENTION POLICIES
-name    duration shardGroupDuration replicaN default
-----    -------- ------------------ -------- -------
-autogen 0s       <mark>168h0m0s</mark>           1        true
-            </code></pre>
-          </section>
-          <section data-background-image="images/photography/photo-4.jpg">
-            <h3 class="influxdb">Retention Policies</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-> SHOW RETENTION POLICIES
-name    duration shardGroupDuration replicaN default
-----    -------- ------------------ -------- -------
-autogen 0s       168h0m0s           <mark>1</mark>        true
-            </code></pre>
-          </section>
-          <section data-background-image="images/photography/photo-4.jpg">
-            <h3 class="influxdb">Retention Policies</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-> SHOW RETENTION POLICIES
-name    duration shardGroupDuration replicaN default
-----    -------- ------------------ -------- -------
-autogen 0s       168h0m0s           1        <mark>true</mark>
-            </code></pre>
-          </section>
-
-          <section data-background-image="images/photography/photo-7.jpg">
-            <h3 class="influxdb">Continuous Queries - CQ's</h3>
-            <ul>
-              <li class="fragment fade-in">Downsample</li>
-              <li class="fragment fade-in">Pre-calculating</li>
-              <li class="fragment fade-in">(HAVING)</li>
-              <li class="fragment fade-in">(Nested Functions)</li>
-            </ul>
-          </section>
-
-          <section data-background-image="images/photography/photo-7.jpg">
-            <h3 class="influxdb">Continuous Queries - CQ's</h3>
-            <pre><code class="hljs" data-trim contenteditable style="word-wrap: break-word;">
-SHOW CONTINUOUS QUERIES
-
-CREATE CONTINUOUS QUERY &lt;cq name&gt; ON &lt;database&gt;
-BEGIN
-  SELECT [...] INTO &lt;new measurement&gt; FROM &lt;source measurement&gt; GROUP BY TIME(&lt;duration&gt;)
-END
-            </code></pre>
-          </section>
-
+        <section>
+          <h3 class="kapacitor">Reading</h3>
+          <ul>
+            <li class="telegraf"><i class="influxdb">Datadog</i> - Monitoring Modern Infrastructure <i class="kapacitor" style="font-size:80%;">free</i></li>
+            <li class="telegraf"><i class="influxdb">James Turnbull</i> - The Art of Monitoring</li>
+          </ul>
+          <a href="https://www.datadoghq.com/ebook/monitoring-modern-infrastructure/">
+            <img data-src="images/ebook-modern-monitoring-magazine.png" style="box-shadow:none;border:none;background:transparent;height:240px;">
+          </a>
+          <a href="https://www.artofmonitoring.com/">
+            <img data-src="images/the_art_of_monitoring.jpg" style="box-shadow:none;border:none;background:transparent;height:240px;">
+          </a>
         </section>
 
-        <!-- Chronograf -->
-
-        <section data-background-image="images/artwork/hero-8.jpg">
-          <section>
-            <img data-src="images/logo-variations/chronograf-gradient-A.svg" style="box-shadow:none;border:none;background:transparent;height:200px;">
-          </section>
-
-          <section data-background-image="images/photography/photo-5.jpg">
-            <h2 class="chronograf">Chronograf</h2>
-            <blockquote>
-              &ldquo;Chronograf is a graphing and visualization application for performing ad hoc exploration of data&rdquo;
-            </blockquote>
-          </section>
-
-          <section data-background-image="images/photography/photo-5.jpg">
-            <h2 class="chronograf">Chronograf</h2>
-            <ul>
-              <li><i class="devicons devicons-go"></i>&emsp; Go</li>
-              <li><i class="fa fa-cogs"></i>&emsp; Zero Config</li>
-              <li><i class="fa fa-wrench"></i>&emsp; InfluxDB Administration</li>
-              <li><i class="fa fa-compass"></i>&emsp; Data Exploration</li>
-              <li><i class="fa fa-line-chart"></i>&emsp; Canned Dashboards</li>
-              <li><i class="fa fa-bar-chart"></i>&emsp; Adaptive Host Dashboards</li>
-              <li><i class="fa fa-pie-chart"></i>&emsp; Simple Dashboards</li>
-              <li><i class="fa fa-exclamation-triangle"></i>&emsp; Alert Management</li>
-            </ul>
-          </section>
+        <section data-background-image="images/matrix.jpg">
+          <h1 class="telegraf">Demo</h1>
         </section>
 
-        <!-- Kapacitor -->
-
-        <section data-background-image="images/artwork/hero-5.jpg">
-          <section>
-            <img data-src="images/logo-variations/kapacitor-gradient-A.svg" style="box-shadow:none;border:none;background:transparent;height:200px;">
-          </section>
-
-          <section data-background-image="images/photography/photo-1.jpg">
-            <h2 class="kapacitor">Kapacitor</h2>
-            <blockquote>
-              &ldquo;Open source framework for processing, monitoring, and alerting on time series data&rdquo;
-            </blockquote>
-          </section>
-          <section data-background-image="images/photography/photo-1.jpg">
-            <h2 class="kapacitor">Kapacitor</h2>
-            <ul>
-              <li><i class="devicons devicons-go"></i>&emsp; Go</li>
-              <li><i class="fa fa-cogs"></i>&emsp; TOML Based Simple Config</li>
-              <li><i class="fa fa-file-text-o"></i>&emsp; TICKscript Task Config</li>
-            </ul>
-          </section>
-
-          <section data-background-image="images/photography/photo-1.jpg">
-            <h2 class="kapacitor">Usage</h2>
-            <ul>
-              <li>Offload CQ's</li>
-              <li>Pre-processing</li>
-              <li>Alerting</li>
-            </ul>
-          </section>
-
-          <section data-background-image="images/photography/photo-1.jpg">
-            <h2 class="kapacitor">Concepts</h2>
-            <ul>
-              <li><i class="fa fa-tasks"></i>&emsp; Tasks</li>
-              <li><i class="fa fa-film"></i>&emsp; Recordings</li>
-              <li><i class="fa fa-repeat"></i>&emsp; Replays</li>
-              <li><i class="fa fa-files-o"></i>&emsp; Templates</li>
-              <li><i class="fa fa-share-alt"></i>&emsp; Handlers</li>
-              <!--
-                <li><i class="fa fa-rss"></i>&emsp; Topics</li>
-                <li><i class="fa fa-check-square-o"></i>&emsp; Service Tests</li>
-              -->
-            </ul>
-          </section>
-
-          <section data-background-image="images/photography/photo-7.jpg">
-            <h3 class="kapacitor">Kapacitor CLI</h3>
-            <pre><code class="hljs" data-trim contenteditable style="word-wrap: break-word;">
-kapacitor help
-kapacitor list tasks
-            </code></pre>
-          </section>
-
-          <section data-background-image="images/photography/photo-7.jpg">
-            <h3 class="kapacitor">TICKscript</h3>
-            <pre><code class="hljs" data-trim contenteditable style="word-wrap: break-word;">
-stream
-    |from()
-        .measurement('cpu')
-    |alert()
-        .crit(lambda: "usage_idle" &lt;  70)
-        .log('/tmp/alerts.log')
-            </code></pre>
-          </section>
-
-          <section data-background-image="images/photography/photo-7.jpg">
-            <h3 class="kapacitor">TICKscript</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-<mark>stream</mark>
-    |from()
-        .measurement('cpu')
-    |alert()
-        .crit(lambda: "usage_idle" &lt; 70)
-        .log('/tmp/alerts.log')
-            </code></pre>
-          </section>
-
-          <section data-background-image="images/photography/photo-7.jpg">
-            <h3 class="kapacitor">TICKscript</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-stream
-    <mark>|from()</mark>
-        .measurement('cpu')
-    |alert()
-        .crit(lambda: "usage_idle" &lt; 70)
-        .log('/tmp/alerts.log')
-            </code></pre>
-          </section>
-
-          <section data-background-image="images/photography/photo-7.jpg">
-            <h3 class="kapacitor">TICKscript</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-stream
-    |from()
-        <mark>.measurement('cpu')</mark>
-    |alert()
-        .crit(lambda: "usage_idle" &lt; 70)
-        .log('/tmp/alerts.log')
-            </code></pre>
-          </section>
-
-          <section data-background-image="images/photography/photo-7.jpg">
-            <h3 class="kapacitor">TICKscript</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-stream
-    |from()
-        .measurement('cpu')
-    <mark>|alert()</mark>
-        .crit(lambda: "usage_idle" &lt; 70)
-        .log('/tmp/alerts.log')
-            </code></pre>
-          </section>
-
-          <section data-background-image="images/photography/photo-7.jpg">
-            <h3 class="kapacitor">TICKscript</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-stream
-    |from()
-        .measurement('cpu')
-    |alert()
-        <mark>.crit(lambda: "usage_idle" &lt; 70)</mark>
-        .log('/tmp/alerts.log')
-            </code></pre>
-          </section>
-
-          <section data-background-image="images/photography/photo-7.jpg">
-            <h3 class="kapacitor">TICKscript</h3>
-            <pre><code class="hljs" data-trim data-noescape contenteditable style="word-wrap: break-word;">
-stream
-    |from()
-        .measurement('cpu')
-    |alert()
-        .crit(lambda: "usage_idle" &lt; 70)
-        <mark>.log('/tmp/alerts.log')</mark>
-            </code></pre>
-          </section>
-
-          <section data-background-image="images/photography/photo-7.jpg">
-            <h3 class="kapacitor">Defining an Alert</h3>
-            <pre><code class="hljs" data-trim contenteditable style="word-wrap: break-word;">
-kapacitor define &lt;name&gt; [stream|batch] -tick &lt;tick-script&gt; -dbrp &lt;RP&gt;
-
-kapacitor record
-kapacitor list recordings
-kapacitor replay -recording &lt;ID&gt; -task &lt;task&gt;
-
-kapacitor enable &lt;task&gt;
-            </code></pre>
-          </section>
-
+        <section data-background-image="images/photography/photo-5.jpg">
+          <h1>Questions</h1>
         </section>
       </div>
     </div>
